@@ -1,0 +1,113 @@
+{
+  "data": {
+    "role": [
+      {
+        "name": "public",
+        "accessLevel": 0,
+        "createdAt": "2015-10-18T02:01:56.159Z",
+        "updatedAt": "2015-10-18T02:01:56.159Z",
+        "id": 1
+      },
+      {
+        "name": "admin",
+        "accessLevel": 1,
+        "createdAt": "2015-10-18T02:01:56.161Z",
+        "updatedAt": "2015-10-18T02:01:56.161Z",
+        "id": 2
+      },
+      {
+        "name": "super",
+        "accessLevel": 2,
+        "createdAt": "2015-10-18T02:01:56.162Z",
+        "updatedAt": "2015-10-18T02:01:56.162Z",
+        "id": 3
+      }
+    ],
+    "user": [
+      {
+        "password": "$2a$10$G.9tkud1fHDhstPRzzJx5.GlTswtMTlekfrLTiTA5zO8cK8kzXb7G",
+        "email": "ricardo.romo.ramirez@gmail.com",
+        "firstName": "Ricardo",
+        "lastName": "Romo",
+        "photo": "",
+        "socialProfiles": {},
+        "id": 1,
+        "createdAt": "2015-10-17T21:55:19.564Z",
+        "updatedAt": "2015-10-17T21:55:19.564Z"
+      }
+    ]
+  },
+  "schema": {
+    "role": {
+      "name": {
+        "type": "string"
+      },
+      "accessLevel": {
+        "type": "integer"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "password": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "firstName": {
+        "type": "string",
+        "defaultsTo": ""
+      },
+      "lastName": {
+        "type": "string",
+        "defaultsTo": ""
+      },
+      "photo": {
+        "type": "string",
+        "defaultsTo": ""
+      },
+      "socialProfiles": {
+        "type": "string",
+        "defaultsTo": {}
+      },
+      "role": {
+        "type": "integer",
+        "model": "role",
+        "foreignKey": true,
+        "alias": "role"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "user": {
+      "id": 1
+    },
+    "role": {
+      "id": 3
+    }
+  }
+}
