@@ -16,7 +16,6 @@ module.exports = {
     Model
       .create(values)
       .then(function(list){
-        res.created(list);
         var songs = req.param('songs',[]);;
         for(var i in songs){
           var song = songs[i];
@@ -37,16 +36,24 @@ module.exports = {
             var title = song.title;
             var artist = song.artist;
             var  genre = song.genre;
+
             if(title && artist && values.adminId){
-              Song.create({title:title
+              Song.findOne({title: title, artist:artist, adminId:values.adminId})
+              .exec(function(err, thisSong){
+                if(!err && thisSong){
+                  list.songs.add(thisSong.id);
+                }else{
+                  Song.create({title:title
                           , artist:artist
                           , adminId:values.adminId
                           , genre: genre})
-              .exec(function createCB(err, thisSong){
-                if(!err){
-                  list.songs.add(thisSong.id);
-                }else{
-                  sails.log.error("Error saving a song: " + err);
+                  .exec(function createCB(err, thisSong){
+                    if(!err){
+                      list.songs.add(thisSong.id);
+                    }else{
+                      sails.log.error("Error saving a song: " + err);
+                    }
+                  });
                 }
               });
             }else{
@@ -57,6 +64,7 @@ module.exports = {
           }
         }
         list.save();
+        res.created(list);
       })
       .catch(res.serverError);
   },
