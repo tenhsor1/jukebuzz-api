@@ -79,7 +79,6 @@ module.exports = {
       var roleId = {id: values.role};
       Role.findOne(roleId)
       .then(function(role) {
-        console.log(role.accessLevel);
         if(!role){
           sails.log.error(sails.config.errors.ROLE_NOT_FOUND);
           next(sails.config.errors.ROLE_NOT_FOUND);
