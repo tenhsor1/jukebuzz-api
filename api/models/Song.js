@@ -26,6 +26,11 @@ module.exports = {
       collection: 'list',
       via: 'songs',
       dominant: true
+    },
+    jukeboxes: {
+      collection: 'jukebox',
+      via: 'songs',
+      dominant: true
     }
   },
 };
