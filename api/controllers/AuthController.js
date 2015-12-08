@@ -12,7 +12,7 @@ var passport = require('passport');
  */
 function _onPassportAuth(req, res, error, user, info) {
   if (error) return res.serverError(error);
-  if (!user) return res.unauthorized(null, info && info.code, info && info.message);
+  if (!user) return res.unauthorized(null, info && info.code, "User or password invalid");
 
   return res.ok({
     token: CipherService.jwt.encodeSync({id: user.id}),

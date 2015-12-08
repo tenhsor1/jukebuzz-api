@@ -25,6 +25,13 @@ module.exports.policies = {
   },
 
   UserController: {
-    'find': ['isAuthenticated', 'isSuperAdmin']
+    'find': ['isAuthenticated', 'isSuperAdmin'],
+    'findToken': ['isAuthenticated']
+  },
+  PlaceController: {
+    'adminFind': ['isAuthenticated', 'isAdmin'],
+    'create': ['isAuthenticated', 'isAdmin'],
+    'destroy': ['isAuthenticated', 'isAdmin'],
+    'update': ['isAuthenticated', 'isAdmin'],
   }
 };
