@@ -34,11 +34,7 @@ module.exports = {
       required: true
     },
     lists:{
-      collection: 'lists',
-      via: 'jukeboxes'
-    },
-    songs: {
-      collection: 'song',
+      collection: 'list',
       via: 'jukeboxes'
     }
   },

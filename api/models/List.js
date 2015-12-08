@@ -18,6 +18,10 @@ module.exports = {
     songs: {
       collection: 'song',
       via: 'lists'
+    },
+    jukeboxes: {
+      collection: 'jukebox',
+      via: 'lists'
     }
   },
 };
