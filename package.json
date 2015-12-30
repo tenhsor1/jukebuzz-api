@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "app.js",
   "dependencies": {
+    "waterline": "~0.10.25",
     "babel": "^5.8.23",
     "bluebird": "^2.10.1",
     "lodash": "^3.10.1",
