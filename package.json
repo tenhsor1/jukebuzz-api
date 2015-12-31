@@ -29,7 +29,6 @@
     "sails": "^0.11.2",
     "sails-disk": "^0.10.8",
     "sails-hook-cron": "^2.1.0",
-    "sails-hook-validation": "^0.4.1",
     "sails-mongo": "^0.11.4",
     "sails-service-cipher": "^3.0.2",
     "sails-service-hash": "^3.0.2",
