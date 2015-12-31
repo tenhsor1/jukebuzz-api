@@ -29,9 +29,19 @@ module.exports = {
   },
 
   activeJukeboxes: function(req, res){
+    function pad_with_zeroes(number, length) {
+
+        var my_string = '' + number;
+        while (my_string.length < length) {
+            my_string = '0' + my_string;
+        }
+        return my_string;
+    }
+
     var placeId = req.param('placeId');
     var currentdate = new Date();
-    var hour = currentdate.getHours() + ":" + currentdate.getMinutes();
+    var hour = pad_with_zeroes(currentdate.getHours(), 2) + ":" +
+                pad_with_zeroes(currentdate.getMinutes(),2);
     var dateFormatted = currentdate.getFullYear() + '-' +
         (currentdate.getMonth()+1) + '-' +
         currentdate.getDate();
